@@ -1,4 +1,4 @@
-﻿using System.Windows.Forms;
+using System.Windows.Forms;
 
 namespace labs
 {
@@ -28,7 +28,7 @@ namespace labs
             toolStrip.Dock = DockStyle.Top;
             toolStrip.GripStyle = ToolStripGripStyle.Hidden;
 
-            string[] menuItems = { "� ���������", "�������", "�����" };
+            string[] menuItems = { "О программе", "Задания", "Выход" };
             foreach (var item in menuItems)
             {
                 var toolStripButton = new ToolStripButton(item);
@@ -57,13 +57,13 @@ namespace labs
 
             switch (clickedItem.Text)
             {
-                case "� ���������":
+                case "О программе":
                     LoadAboutContent();
                     break;
-                case "�������":
+                case "Задания":
                     LoadTaskContent();
                     break;
-                case "�����":
+                case "Выход":
                     ExitApplication();
                     break;
             }
@@ -71,8 +71,8 @@ namespace labs
 
         private void ExitApplication()
         {
-            DialogResult result = MessageBox.Show("�� ������������� ������ �����?",
-                "������������� ������",
+            DialogResult result = MessageBox.Show("Вы действительно хотите выйти?",
+                                                    "Подтверждение выхода",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question);
 
@@ -87,37 +87,37 @@ namespace labs
             aboutPanel.AutoScroll = true;
 
             Label titleLabel = new Label();
-            titleLabel.Text = "� ���������";
+            titleLabel.Text = "О программе";
             titleLabel.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
             titleLabel.AutoSize = true;
             titleLabel.Location = new Point(20, 20);
 
             Label versionLabel = new Label();
-            versionLabel.Text = "������: ���� 1";
+            versionLabel.Text = "Версия: Лаба 1";
             versionLabel.Font = new Font("Segoe UI", 12F);
             versionLabel.AutoSize = true;
             versionLabel.Location = new Point(20, 60);
 
             Label authorLabel = new Label();
-            authorLabel.Text = "�����: ���� ����";
+            authorLabel.Text = "Автор: Приц Артём";
             authorLabel.Font = new Font("Segoe UI", 12F);
             authorLabel.AutoSize = true;
             authorLabel.Location = new Point(20, 90);
 
             Label descriptionLabel = new Label();
-            descriptionLabel.Text = "�������� ��������� � � ����������������:\n\n" +
-                                    "��������� ������������� ������� ��������� ��� ������ �������,\n����� ������ � ����������� �����������.\n\n" +
-                                    "�������� �����������:\n" +
-                                    "- ���������� � ��������� � ������.\n" +
-                                    "- ����� ������� �� ������.\n" +
-                                    "- ���� ������ ��� ���������� ����������.\n" +
-                                    "- ����������� ����������� ����������.\n\n" +
-                                    "��� ������������ ����������:\n" +
-                                    "1. �������� ������ \"�������\" � ���� �����.\n" +
-                                    "2. �������� ������ ������� �� ������.\n" +
-                                    "3. ������� ����������� ������ � ���� �����.\n" +
-                                    "4. ������� ������ \"���������\" ��� ��������� ����������.\n" +
-                                    "5. ��� �������� � ���� ������� \"��������� � ������ �������\".\n\n";
+            descriptionLabel.Text = "Описание программы и её функциональности:\n\n" +
+                                    "Программа предоставляет удобный интерфейс для выбора заданий,\nввода данных и отображения результатов.\n\n" +
+                                    "Основные возможности:\n" +
+                                    "- Информация о программе и авторе.\n" +
+                                    "- Выбор заданий из списка.\n" +
+                                    "- Ввод данных для выполнения алгоритмов.\n" +
+                                    "- Отображение результатов вычислений.\n\n" +
+                                    "Как пользоваться программой:\n" +
+                                    "1. Выберите раздел \"Задания\" в меню слева.\n" +
+                                    "2. Выберите нужное задание из списка.\n" +
+                                    "3. Введите необходимые данные в поля ввода.\n" +
+                                    "4. Нажмите кнопку \"Выполнить\" для получения результата.\n" +
+                                    "5. Для возврата в меню нажмите \"Вернуться к выбору заданий\".\n\n";
             descriptionLabel.Font = new Font("Segoe UI", 12F);
             descriptionLabel.AutoSize = true;
             descriptionLabel.Location = new Point(20, 130);
@@ -138,7 +138,7 @@ namespace labs
             taskPanel.Dock = DockStyle.Fill;
 
             Label titleLabel = new Label();
-            titleLabel.Text = "����� �������";
+            titleLabel.Text = "Выбор задания";
             titleLabel.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
             titleLabel.AutoSize = true;
             titleLabel.Location = new Point(20, 20);
@@ -196,7 +196,7 @@ namespace labs
             specificTaskPanel.Controls.Add(taskTitleLabel);
 
             Label inputLabel1 = new Label();
-            inputLabel1.Text = "������� ������ �����:";
+            inputLabel1.Text = "Введите первое число:";
             inputLabel1.Font = new Font("Segoe UI", 12F);
             inputLabel1.AutoSize = true;
             inputLabel1.Location = new Point(20, 70);
@@ -209,7 +209,7 @@ namespace labs
             specificTaskPanel.Controls.Add(inputBox1);
 
             Label inputLabel2 = new Label();
-            inputLabel2.Text = "������� ������ �����:";
+            inputLabel2.Text = "Введите второе число:";
             inputLabel2.Font = new Font("Segoe UI", 12F);
             inputLabel2.AutoSize = true;
             inputLabel2.Location = new Point(20, 130);
@@ -222,7 +222,7 @@ namespace labs
             specificTaskPanel.Controls.Add(inputBox2);
 
             Label resultLabel = new Label();
-            resultLabel.Text = "���������:";
+            resultLabel.Text = "Результат:";
             resultLabel.Font = new Font("Segoe UI", 12F);
             resultLabel.AutoSize = true;
             resultLabel.Location = new Point(20, 195);
@@ -237,7 +237,7 @@ namespace labs
             specificTaskPanel.Controls.Add(resultValueLabel);
 
             Button executeButton = new Button();
-            executeButton.Text = "���������";
+            executeButton.Text = "Выполнить";
             executeButton.Size = new Size(150, 30);
             executeButton.Location = new Point(20, 235);
             executeButton.Click += (s, args) =>
@@ -251,7 +251,7 @@ namespace labs
                     }
                     else
                     {
-                        MessageBox.Show("������� ����� ����� � ��� ����.", "������",
+                        MessageBox.Show("Введите целые числа в оба поля.", "Ошибка",
                                       MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
@@ -259,7 +259,7 @@ namespace labs
             specificTaskPanel.Controls.Add(executeButton);
 
             Button backButton = new Button();
-            backButton.Text = "��������� � ������ �������";
+            backButton.Text = "Вернуться к выбору заданий";
             backButton.Size = new Size(200, 30);
             backButton.Location = new Point(20, 280);
             backButton.Click += (s, args) => LoadTaskContent();
